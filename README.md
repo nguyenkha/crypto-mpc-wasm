@@ -198,6 +198,40 @@ interface BIP32Info {
 }
 ```
 
+## Browser Usage
+
+```html
+<script type="module">
+  import { MPCPeer } from "https://cdn.jsdelivr.net/npm/crypto-mpc@1.0.0/index.js";
+  import { load } from "https://cdn.jsdelivr.net/npm/crypto-mpc@1.0.0/load.js";
+
+  const { peer1, peer2 } = await load();
+
+  // Generate an ECDSA key pair
+  const ctx1 = peer1.generateEcdsaKey();
+  const ctx2 = peer2.generateEcdsaKey();
+  MPCPeer.runProtocol(ctx1, ctx2);
+
+  const share1 = ctx1.getShare();
+  const share2 = ctx2.getShare();
+  ctx1.free();
+  ctx2.free();
+
+  console.log("Public key:", peer1.getEcdsaPublic(share1));
+</script>
+```
+
+With a bundler (Vite, Webpack, etc.):
+
+```js
+import { MPCPeer } from "crypto-mpc";
+import { load } from "crypto-mpc/load";
+
+const { peer1, peer2 } = await load();
+```
+
+> **Note:** The WASM file (~3.3MB) is loaded automatically. The `load()` function uses `import.meta.url` to locate the `wasm/` directory relative to the module.
+
 ## 2-of-3 Custody with Key Refresh
 
 You can use key refresh to create a 2-of-3 scheme where any 2 of 3 parties can sign:

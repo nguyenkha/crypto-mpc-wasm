@@ -1,6 +1,6 @@
 {
   "name": "crypto-mpc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "2-party MPC (ECDSA, EdDSA, BIP32) compiled to WebAssembly with TypeScript bindings",
   "type": "module",
   "main": "index.js",
