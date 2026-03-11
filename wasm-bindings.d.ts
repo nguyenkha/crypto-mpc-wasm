@@ -1,0 +1,47 @@
+import type { EmscriptenModule } from "./types.js";
+type CFunc = (...args: unknown[]) => number;
+export interface WasmBindings {
+    freeShare: (ptr: number) => void;
+    freeContext: (ptr: number) => void;
+    freeMessage: (ptr: number) => void;
+    shareToBuf: CFunc;
+    contextToBuf: CFunc;
+    messageToBuf: CFunc;
+    shareFromBuf: CFunc;
+    contextFromBuf: CFunc;
+    messageFromBuf: CFunc;
+    shareInfo: CFunc;
+    contextInfo: CFunc;
+    messageInfo: CFunc;
+    step: CFunc;
+    getShare: CFunc;
+    initRefreshKey: CFunc;
+    initGenerateEddsaKey: CFunc;
+    initEddsaSign: CFunc;
+    getResultEddsaSign: CFunc;
+    verifyEddsa: CFunc;
+    getEddsaPublic: CFunc;
+    initGenerateEcdsaKey: CFunc;
+    initEcdsaSign: CFunc;
+    getResultEcdsaSign: CFunc;
+    verifyEcdsa: CFunc;
+    getEcdsaPublic: CFunc;
+    initGenerateGenericSecret: CFunc;
+    initImportGenericSecret: CFunc;
+    initBackupEcdsaKey: CFunc;
+    getResultBackupEcdsaKey: CFunc;
+    verifyEcdsaBackupKey: CFunc;
+    restoreEcdsaKey: CFunc;
+    initBackupEddsaKey: CFunc;
+    getResultBackupEddsaKey: CFunc;
+    verifyEddsaBackupKey: CFunc;
+    restoreEddsaKey: CFunc;
+    initDeriveBIP32: CFunc;
+    getResultDeriveBIP32: CFunc;
+    getBIP32Info: CFunc;
+    serializePubBIP32: CFunc;
+    reconstructEcdsaKey: CFunc;
+}
+export declare function createBindings(m: EmscriptenModule): WasmBindings;
+export {};
+//# sourceMappingURL=wasm-bindings.d.ts.map

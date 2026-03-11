@@ -1,0 +1,29 @@
+{
+  "name": "crypto-mpc",
+  "version": "1.0.0",
+  "description": "2-party MPC (ECDSA, EdDSA, BIP32) compiled to WebAssembly with TypeScript bindings",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.js"
+    },
+    "./load": {
+      "types": "./load.d.ts",
+      "import": "./load.js"
+    }
+  },
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "*.map",
+    "wasm/mpc_crypto.js",
+    "wasm/mpc_crypto.wasm",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": ["mpc", "ecdsa", "eddsa", "bip32", "wasm", "cryptography", "blockchain"],
+  "license": "GPL-3.0-or-later"
+}
